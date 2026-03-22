@@ -1,4 +1,4 @@
 # ADS
 Duiset Nurzhigit IT-2501
 Part 1, task 1
-<img width="956" height="755" alt="task1" src="https://github.com/user-attachments/assets/122470f7-5705-4ed9-890c-67b19c1835cc" />
+<img width="1051" height="799" alt="task1" src="https://github.com/user-attachments/assets/a1c75e8f-adc3-427b-9945-a56b2f46f997" />
