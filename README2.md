@@ -17,11 +17,16 @@ Task 3
 
 
 Task 4
+
 1)
+
+
 <img width="341" height="671" alt="Снимок экрана 2026-04-11 в 23 31 09" src="https://github.com/user-attachments/assets/e8b9e1b0-6f53-4f2a-a57d-279061d61d66" />
 
 
 2)
+
+
 <img width="311" height="679" alt="Снимок экрана 2026-04-11 в 23 31 20" src="https://github.com/user-attachments/assets/759d3254-54b9-43c7-85eb-d4b96c2029ad" />
 
 
