@@ -1,0 +1,257 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+import java.util.Stack;
+
+
+public class Main {
+
+    static LinkedList<BankAccount> accounts = new LinkedList<>();
+    static Stack<String> history = new Stack<>();
+    static Queue<String> billQueue = new LinkedList<>();
+    static Queue<String> accountRequests = new LinkedList<>();
+
+    static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+
+        while (true) {
+            System.out.println("\n MAIN MENU ");
+            System.out.println("1 – Enter Bank");
+            System.out.println("2 – Enter ATM");
+            System.out.println("3 – Admin Area");
+            System.out.println("4 – Exit");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1:
+                    bankMenu();
+                    break;
+                case 2:
+                    atmMenu();
+                    break;
+                case 3:
+                    adminMenu();
+                    break;
+                case 4:
+                    System.out.println("Goodbye!");
+                    return;
+                default:
+                    System.out.println("Invalid choice");
+            }
+        }
+    }
+
+
+    public static void bankMenu() {
+        while (true) {
+            System.out.println("\n=== BANK MENU ===");
+            System.out.println("1. Submit account request");
+            System.out.println("2. Deposit");
+            System.out.println("3. Withdraw");
+            System.out.println("4. Back");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+
+                case 1:
+                    System.out.print("Enter username: ");
+                    String name = scanner.nextLine();
+                    accountRequests.add(name);
+                    System.out.println("Request submitted");
+                    break;
+
+                case 2:
+                    System.out.print("Enter username: ");
+                    String depName = scanner.nextLine();
+
+                    for (BankAccount acc : accounts) {
+                        if (acc.getUsername().equalsIgnoreCase(depName)) {
+                            System.out.print("Enter amount: ");
+                            double amount = scanner.nextDouble();
+
+                            acc.setBalance(acc.getBalance() + amount);
+                            history.push("Deposit " + amount + " to " + acc.getUsername());
+
+                            System.out.println("New balance: " + acc.getBalance());
+                            break;
+                        }
+                    }
+                    break;
+
+                case 3:
+                    System.out.print("Enter username: ");
+                    String withName = scanner.nextLine();
+
+                    for (BankAccount acc : accounts) {
+                        if (acc.getUsername().equalsIgnoreCase(withName)) {
+
+                            System.out.print("Enter amount: ");
+                            double amount = scanner.nextDouble();
+
+                            if (amount > acc.getBalance()) {
+                                System.out.println("Not enough balance!");
+                            } else {
+                                acc.setBalance(acc.getBalance() - amount);
+                                history.push("Withdraw " + amount + " from " + acc.getUsername());
+
+                                System.out.println("New balance: " + acc.getBalance());
+                            }
+                            break;
+                        }
+                    }
+                    break;
+
+                case 4:
+                    return;
+
+                default:
+                    System.out.println("Invalid choice");
+            }
+        }
+    }
+
+    public static void atmMenu() {
+        while (true) {
+            System.out.println("\n ATM MENU ");
+            System.out.println("1. Balance enquiry");
+            System.out.println("2. Withdraw");
+            System.out.println("3. Back");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+
+                case 1:
+                    System.out.print("Enter username: ");
+                    String name = scanner.nextLine();
+
+                    for (BankAccount acc : accounts) {
+                        if (acc.getUsername().equalsIgnoreCase(name)) {
+                            System.out.println("Balance: " + acc.getBalance());
+                            break;
+                        }
+                    }
+                    break;
+
+                case 2:
+                    System.out.print("Enter username: ");
+                    String user = scanner.nextLine();
+
+                    for (BankAccount acc : accounts) {
+                        if (acc.getUsername().equalsIgnoreCase(user)) {
+
+                            System.out.print("Enter amount: ");
+                            double amount = scanner.nextDouble();
+
+                            if (amount > acc.getBalance()) {
+                                System.out.println("Not enough balance!");
+                            } else {
+                                acc.setBalance(acc.getBalance() - amount);
+                                history.push("ATM Withdraw " + amount + " from " + acc.getUsername());
+
+                                System.out.println("Withdraw successful");
+                            }
+                            break;
+                        }
+                    }
+                    break;
+
+                case 3:
+                    return;
+
+                default:
+                    System.out.println("Invalid choice");
+            }
+        }
+    }
+
+    public static void adminMenu() {
+        while (true) {
+            System.out.println("\n ADMIN MENU ");
+            System.out.println("1. View account requests");
+            System.out.println("2. Process account request");
+            System.out.println("3. View bill queue");
+            System.out.println("4. Back");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+
+                case 1:
+                    System.out.println("Requests:");
+                    for (String r : accountRequests) {
+                        System.out.println(r);
+                    }
+                    break;
+
+                case 2:
+                    if (!accountRequests.isEmpty()) {
+                        String newUser = accountRequests.poll();
+                        int id = accounts.size() + 1;
+
+                        accounts.add(new BankAccount(id, newUser, 0));
+                        System.out.println("Account created for " + newUser);
+                    } else {
+                        System.out.println("No requests");
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("Bills:");
+                    for (String b : billQueue) {
+                        System.out.println(b);
+                    }
+                    break;
+
+                case 4:
+                    return;
+
+                default:
+                    System.out.println("Invalid choice");
+            }
+        }
+    }
+}
+
+
+
+
+public class BankAccount {
+    private int accountNumber;
+    private String username;
+    private double balance;
+
+    public BankAccount(int accountNumber, String username, double balance) {
+        this.accountNumber = accountNumber;
+        this.username = username;
+        this.balance = balance;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    @Override
+    public String toString() {
+        return accountNumber + " | " + username + " – Balance: " + balance;
+    }
+}
