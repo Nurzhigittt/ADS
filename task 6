@@ -1,0 +1,48 @@
+public class BankAccount {
+    private int accountNumber;
+    private String username;
+    private double balance;
+
+    public BankAccount(int accountNumber, String username, double balance) {
+        this.accountNumber = accountNumber;
+        this.username = username;
+        this.balance = balance;
+    }
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    @Override
+    public String toString() {
+        return accountNumber + " | " + username + " – Balance: " + balance;
+    }
+}
+
+
+
+public class Main {
+
+
+    public static void main(String[] args) {
+
+        BankAccount[] accounts = new BankAccount[3];
+
+        accounts[0] = new BankAccount(1, "Ali", 150000);
+        accounts[1] = new BankAccount(2, "Sara", 220000);
+        accounts[2] = new BankAccount(3, "John", 180000);
+        System.out.println("Accounts in Array:");
+
+        for (int i = 0; i < accounts.length; i++) {
+            System.out.println(accounts[i]);
+        }
+    }
+}
