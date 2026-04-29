@@ -31,36 +31,35 @@ The process is repeated recursively.
 
 Time Complexity:
 
-  * Best Case: O(n log n)
-  * Average Case: O(n log n)
-  * Worst Case: O(n²)
+   Best Case: O(n log n)
+   Average Case: O(n log n)
+   Worst Case: O(n²)
 
 3. Binary Search
 Binary Search works by repeatedly dividing a sorted array in half to locate a target element.
 Time Complexity:
 
-  * Best Case: O(1)
-  * Average Case: O(log n)
-  * Worst Case: O(log n)
+   Best Case: O(1)
+   Average Case: O(log n)
+   Worst Case: O(log n)
 
-Note: Binary Search requires a **sorted array**.
+Note: Binary Search requires a sorted array.
 
----
 
-C. Experimental Results
+ Experimental Results
 
 Test Setup:
 
 Arrays of different sizes were used:
 
-* Small (10 elements)
-* Medium (100 elements)
-* Large (1000 elements)
+ Small (10 elements)
+ Medium (100 elements)
+ Large (1000 elements)
 
 Each algorithm was tested on:
 
-* Random arrays
-* Sorted arrays
+ Random arrays
+ Sorted arrays
 
 Observations:
 
