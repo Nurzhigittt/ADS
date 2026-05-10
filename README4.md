@@ -3,13 +3,12 @@
  Project Overview
 
 This project demonstrates graph traversal algorithms using Java.
-
 The graph is implemented using an adjacency list representation.
 Each graph contains vertices and edges.
 
 Traversal algorithms implemented:
 Breadth-First Search (BFS)
- Depth-First Search (DFS)
+Depth-First Search (DFS)
 
 The project also measures traversal performance on graphs of different sizes.
 
@@ -17,8 +16,8 @@ The project also measures traversal performance on graphs of different sizes.
  Graph Structure
 
 A graph consists of:
- Vertices (nodes)
- Edges (connections)
+Vertices (nodes)
+Edges (connections)
 
 This project uses an undirected graph.
 
@@ -35,9 +34,9 @@ Fields:
  id
 
 Methods:
-- Constructor
-- Getter
-- toString()
+Constructor
+Getter
+toString()
 
 
 Edge Class
@@ -45,13 +44,13 @@ Edge Class
 Represents a connection between two vertices.
 
 Fields:
-- source
-- destination
+source
+destination
 
 Methods:
-- Constructor
-- Getters
-- toString()
+Constructor
+Getters
+toString()
 
 
 
@@ -60,11 +59,11 @@ Graph Class
 Stores graph data using an adjacency list.
 
 Main methods:
-- addVertex()
-- addEdge()
-- printGraph()
-- bfs()
-- dfs()
+addVertex()
+addEdge()
+printGraph()
+bfs()
+dfs()
 
 
 
@@ -73,9 +72,9 @@ Experiment Class
 Runs graph traversal experiments and measures execution time.
 
 Methods:
-- runTraversals()
-- runMultipleTests()
-- printResults()
+runTraversals()
+runMultipleTests()
+printResults()
 
 
 
@@ -90,16 +89,15 @@ Steps:
 4. Continue until queue becomes empty
 
 Use cases:
-- Shortest path
-- Social networks
-- Web crawling
+Shortest path
+Social networks
+Web crawling
 
 Time Complexity:
 O(V + E)
+
 DFS Algorithm
-
 Depth-First Search explores as deep as possible before backtracking.
-
 Steps:
 1. Start from a vertex
 2. Visit neighbor recursively
@@ -114,34 +112,28 @@ Use cases:
 Time Complexity:
 O(V + E)
 
-Experimental reuslts:
+Experimental results:
 <img width="1350" height="626" alt="Снимок экрана 2026-05-10 в 18 41 54" src="https://github.com/user-attachments/assets/a7cb5b99-f689-43c8-b2ee-0ad47658c7d6" />
 
 
 Analysis Questions
 
 How does graph size affect BFS and DFS performance?
-
 As graph size increases, traversal time also increases because more vertices and edges must be visited.
 
 Which traversal is faster?
-
 Both algorithms showed similar performance because both have O(V + E) complexity.
 
 Do results match expected complexity?
-
 Yes. The execution time increased proportionally with graph size.
 
 How does graph structure affect traversal order?
-
 Different edge connections change the visiting order of vertices.
 
  When is BFS preferred over DFS?
-
 BFS is preferred when finding the shortest path.
 
  What are the limitations of DFS?
-
 DFS may use more recursion depth and may not find the shortest path.
 
 
@@ -149,9 +141,7 @@ DFS may use more recursion depth and may not find the shortest path.
 Reflection
 
 This assignment helped me understand graph traversal algorithms and adjacency list representation.
-
 I learned how BFS uses queues and DFS uses recursion. I also learned how graph size affects performance.
-
 One challenge was implementing traversal correctly while avoiding revisiting nodes.
 
 
