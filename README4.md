@@ -39,7 +39,6 @@ Methods:
 - Getter
 - toString()
 
----
 
 Edge Class
 
@@ -78,7 +77,7 @@ Methods:
 - runMultipleTests()
 - printResults()
 
----
+
 
 BFS Algorithm
 
