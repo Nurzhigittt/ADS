@@ -114,6 +114,10 @@ Use cases:
 Time Complexity:
 O(V + E)
 
+Experimental reuslts:
+<img width="1350" height="626" alt="Снимок экрана 2026-05-10 в 18 41 54" src="https://github.com/user-attachments/assets/a7cb5b99-f689-43c8-b2ee-0ad47658c7d6" />
+
+
 Analysis Questions
 
 How does graph size affect BFS and DFS performance?
